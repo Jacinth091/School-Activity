@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/integer-calculator.css">
+        <script src="/integer-calculator.js"></script> 
+        <title>Integer Calculator</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="content">
+                <h1>Integer Calculator</h1>
+                <form action="#" id="inputForm" class="inputForm">
+                    <div class="userInput">
+                        <label for="num1">Enter the First Number: </label>
+                        <input type="number" id="num1" required>
+                    </div>
+                    <div class="userInput">
+                        <label for="num1">Choose what Operation: </label>
+                        <select name="Operation" id="selectOp">
+                            <option value="+" >Addition</option>
+                            <option value="-" >Subtraction</option>
+                            <option value="*" >Multiplication</option>
+                            <option value="/" >Division</option>
+                            <option value="%" >Modulo</option>
+                            <option value="Ave" >Average</option>
+                        </select>
+                    </div>
+                    <div class="userInput">
+                        <label for="num2">Enter the Second Number: </label>
+                        <input type="number" id="num2" required>
+                    </div>
+                    
+                    <div class="calcButt">
+                        <button type="button" onclick="calculate()">Calculate</button>
+                    </div>
+                </form>
+                <div class="result-container">
+                    <p>Result: </p>
+                    <div class="result" id="result">
+                        <!-- <span id="sum" class="calcResult"></span>
+                        <span id="differ" class="calcResult"></span>
+                        <span id="prod" class="calcResult"></span>
+                        <span id="quotient" class="calcResult"></span>
+                        <span id="ave" class="calcResult"></span> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

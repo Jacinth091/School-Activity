@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Integer Calculator</title>
+    </head>
+    <body>
+        <h1>Integer Calculator</h1>
+
+        <form id="calcForm">
+            <label for="num1">Enter the first number: </label>
+            <input type="number" id="num1" required>
+
+            <label for="num2">Enter the second number: </label>
+            <input type="number" id="num2" required>
+
+            <button type="button" onclick="calculate()">Calculate</button>
+        </form>
+        <div class="result" id="result"></div>
+    </body>
+
+    <script>
+        function calculate() {
+            num1 = parseInt(document.getElementById('num1').value);
+            num2 = parseInt(document.getElementById('num2').value); 
+
+            sum = num1 + num2;
+            product = num1 * num2;
+            average = (num1 + num2) / 2;
+            quotient = num1 / num2;
+
+            result = `Sum: ${sum} <br> Product ${product} <br> Average ${average} <br> Quotient: ${quotient}`;
+
+            document.getElementById('result').innerHTML = result;
+
+        }
+
+
+
+
+    </script>
+
+</html>
