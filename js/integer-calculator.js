@@ -27,7 +27,7 @@ function calculate() {
         break;
         case "%":
             modulo = num1 % num2;
-            document.getElementById('result').innerHTML = `Modulo: ${parseFloat(modulo.toFized(2))}`;
+            document.getElementById('result').innerHTML = `Modulo: ${parseFloat(modulo.toFixed(2))}`;
             break;
         case "Ave": //Average
             average = (num1 + num2) / 2;
