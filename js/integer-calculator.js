@@ -3,6 +3,14 @@ function calculate() {
     num2 = parseInt(document.getElementById('num2').value); 
     operator = document.querySelector('#selectOp').value;
     
+    sum = num1 + num2;
+    differ = num1 - num2;
+    product = num1 * num2;
+    quotient = num1 / num2;
+    modulo = num1 % num2;
+    average = (num1 + num2) / 2;
+    result = `Sum: ${sum} <br> Product ${product} <br> Quotient: ${parseFloat(quotient.toFixed(2))} <br> Modulo: ${parseFloat(modulo.toFixed(2))} <br> Average: ${average} `;
+
     
     if (isNaN(num1) || isNaN(num2)) {
         document.getElementById('result').innerHTML = "Please Input Any Value!";
@@ -10,31 +18,35 @@ function calculate() {
     else {
         switch (operator) {
         case "+":
-            sum = num1 + num2;
+            document.getElementById('result').style.height = "50px";
             document.getElementById('result').innerHTML = `Sum: ${sum}`;
         break;
         case "-":
-            differ = num1 - num2;
+            document.getElementById('result').style.height = "50px";
             document.getElementById('result').innerHTML = `Difference: ${differ}`;
         break;
         case "*":
-            product = num1 * num2;
+            document.getElementById('result').style.height = "50px";
             document.getElementById('result').innerHTML = `Product: ${product}`;
         break;
         case "/":
-            quotient = num1 / num2;
+            document.getElementById('result').style.height = "50px";
             document.getElementById('result').innerHTML = `Quotient: ${parseFloat(quotient.toFixed(2))}`;
         break;
         case "%":
-            modulo = num1 % num2;
+            document.getElementById('result').style.height = "50px";
             document.getElementById('result').innerHTML = `Modulo: ${parseFloat(modulo.toFixed(2))}`;
             break;
         case "Ave": //Average
-            average = (num1 + num2) / 2;
+            document.getElementById('result').style.height = "50px";
             document.getElementById('result').innerHTML = `Average: ${average}`;
         break;
+        case "All": // All Operation
+            document.getElementById('result').style.height = "150px";
+            document.getElementById('result').innerHTML = `All Operation: <br> ${result}`;
+        break;
         default:
-            console.log("Error!!");
+            document.getElementById('result').innerHTML = 'Error!';
         break;
         }
     }
@@ -54,7 +66,6 @@ function calculate() {
 
         
         
-        // result = `Sum: ${sum} <br> Product ${product} <br> Average ${average} <br> Quotient: ${quotient}`;
         
         
 
