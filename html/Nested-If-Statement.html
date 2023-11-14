@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nested - If Statements</title>
+    </head>
+    <body>
+        <h2>Simple Submit Validation Form</h2>
+        <form action="/submit_form" name="myForm" onsubmit="return validateForm()" method="post">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+            <br>
+            <label for="age">Age:</label>
+            <input type="text" name="age" id="age">
+            <br>
+            <input type="submit" value="Submit">
+        </form> 
+
+        <script>
+            function validateForm() {
+                var name = document.forms["myForm"]["name"].value;
+                var age = document.forms["myForm"]["age"].value;
+
+                if (name == "" && age == "") {
+                    alert("Name and Age must be filled out!");
+                    return false;
+
+                }
+                else {
+                    if(isNaN(age) || age < 1 || age > 100) {
+                        alert("Age must between 1 and 100!");
+                        return false;
+                    }
+                    else {
+                        alert("Submission Successful!");
+                        return true;
+                    }
+                }
+
+
+
+
+
+            }
+
+        </script>
+
+    </body>
+</html>

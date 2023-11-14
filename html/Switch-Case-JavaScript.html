@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Switch Case Javascript</title>
+    </head>
+    <body>
+        <h1>Switch Case Javascript Program</h1>
+        <form action="#">
+            <label for="monthNumber"></label>
+            <input type="number" name="monthNumber" id="monthNumber">
+            <button type="button" onclick="getMonthNumber()">Submit</button>
+
+
+        </form>
+        <p>The Month Name is <output id="monthName"></output></p>
+
+
+
+       <script>
+        function getMonthNumber() {
+            var monthNumber = document.getElementById('monthNumber').value;
+            var monthName = '';
+
+            switch (monthNumber ) {
+                case '1':
+                    monthName = "January";
+                break;
+                case '2':
+                    monthName = "Febuary";
+                break;
+                case '3':
+                    monthName = "March";
+                break;
+                case '4':
+                    monthName = "April";
+                break;
+                case '5':
+                    monthName = "May";
+                break;
+                case '6':
+                    monthName = "June";
+                break;
+                case '7':
+                    monthName = "July";
+                break;
+                case '8':
+                    monthName = "August";
+                break;
+                case '9':
+                    monthName = "September";
+                break;
+                case '10':
+                    monthName = "Ocotber";
+                break;
+                case '11':
+                    monthName = "November";
+                break;
+                case '12':
+                    monthName = "December";
+                break;
+                default:
+                    alert("Invalid Month Number!");
+                break;
+            }
+            document.getElementById('monthName').innerHTML = monthName;
+
+
+        }
+
+
+       </script> 
+    </body>
+</html>

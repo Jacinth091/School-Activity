@@ -16,38 +16,43 @@ function calculate() {
         document.getElementById('result').innerHTML = "Please Input Any Value!";
     }
     else {
-        switch (operator) {
-        case "+":
-            document.getElementById('result').style.height = "50px";
-            document.getElementById('result').innerHTML = `Sum: ${sum}`;
-        break;
-        case "-":
-            document.getElementById('result').style.height = "50px";
-            document.getElementById('result').innerHTML = `Difference: ${differ}`;
-        break;
-        case "*":
-            document.getElementById('result').style.height = "50px";
-            document.getElementById('result').innerHTML = `Product: ${product}`;
-        break;
-        case "/":
-            document.getElementById('result').style.height = "50px";
-            document.getElementById('result').innerHTML = `Quotient: ${parseFloat(quotient.toFixed(2))}`;
-        break;
-        case "%":
-            document.getElementById('result').style.height = "50px";
-            document.getElementById('result').innerHTML = `Modulo: ${parseFloat(modulo.toFixed(2))}`;
+        try {
+            switch (operator) {
+            case "+":
+                document.getElementById('result').style.height = "50px";
+                document.getElementById('result').innerHTML = `Sum: ${sum}`;
             break;
-        case "Ave": //Average
-            document.getElementById('result').style.height = "50px";
-            document.getElementById('result').innerHTML = `Average: ${average}`;
-        break;
-        case "All": // All Operation
-            document.getElementById('result').style.height = "150px";
-            document.getElementById('result').innerHTML = `All Operation: <br> ${result}`;
-        break;
-        default:
-            document.getElementById('result').innerHTML = 'Error!';
-        break;
+            case "-":
+                document.getElementById('result').style.height = "50px";
+                document.getElementById('result').innerHTML = `Difference: ${differ}`;
+            break;
+            case "*":
+                document.getElementById('result').style.height = "50px";
+                document.getElementById('result').innerHTML = `Product: ${product}`;
+            break;
+            case "/":
+                document.getElementById('result').style.height = "50px";
+                document.getElementById('result').innerHTML = `Quotient: ${parseFloat(quotient.toFixed(2))}`;
+            break;
+            case "%":
+                document.getElementById('result').style.height = "50px";
+                document.getElementById('result').innerHTML = `Modulo: ${parseFloat(modulo.toFixed(2))}`;
+                break;
+            case "Ave": //Average
+                document.getElementById('result').style.height = "50px";
+                document.getElementById('result').innerHTML = `Average: ${average}`;
+            break;
+            case "All": // All Operation
+                document.getElementById('result').style.height = "150px";
+                document.getElementById('result').innerHTML = `All Operation: <br> ${result}`;
+            break;
+            default:
+                document.getElementById('result').innerHTML = 'Error!';
+            break;
+            }
+        } catch (error) {
+            document.getElementById('result').style.height = "70px";
+            document.getElementById('result').innerHTML = "ERROR!!! Invalid Operation <br>" + error.message;
         }
     }
 }
