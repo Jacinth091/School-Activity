@@ -9,7 +9,7 @@ function calculate() {
     quotient = num1 / num2;
     modulo = num1 % num2;
     average = (num1 + num2) / 2;
-    result = `Sum: ${sum} <br> Product ${product} <br> Quotient: ${parseFloat(quotient.toFixed(2))} <br> Modulo: ${parseFloat(modulo.toFixed(2))} <br> Average: ${average} `;
+    result = `Sum: ${sum} <br> Product: ${product} <br> Quotient: ${parseFloat(quotient.toFixed(2))} <br> Modulo: ${parseFloat(modulo.toFixed(2))} <br> Average: ${parseFloat(average.toFixed(2))} `;
 
     
     if (isNaN(num1) || isNaN(num2)) {
@@ -19,31 +19,25 @@ function calculate() {
         try {
             switch (operator) {
             case "+":
-                document.getElementById('result').style.height = "50px";
                 document.getElementById('result').innerHTML = `Sum: ${sum}`;
             break;
             case "-":
-                document.getElementById('result').style.height = "50px";
                 document.getElementById('result').innerHTML = `Difference: ${differ}`;
             break;
             case "*":
-                document.getElementById('result').style.height = "50px";
                 document.getElementById('result').innerHTML = `Product: ${product}`;
             break;
             case "/":
-                document.getElementById('result').style.height = "50px";
                 document.getElementById('result').innerHTML = `Quotient: ${parseFloat(quotient.toFixed(2))}`;
             break;
             case "%":
-                document.getElementById('result').style.height = "50px";
                 document.getElementById('result').innerHTML = `Modulo: ${parseFloat(modulo.toFixed(2))}`;
                 break;
             case "Ave": //Average
-                document.getElementById('result').style.height = "50px";
                 document.getElementById('result').innerHTML = `Average: ${average}`;
             break;
             case "All": // All Operation
-                document.getElementById('result').style.height = "150px";
+                document.getElementById('result').style.height = "auto";
                 document.getElementById('result').innerHTML = `All Operation: <br> ${result}`;
             break;
             default:
@@ -51,7 +45,6 @@ function calculate() {
             break;
             }
         } catch (error) {
-            document.getElementById('result').style.height = "70px";
             document.getElementById('result').innerHTML = "ERROR!!! Invalid Operation <br>" + error.message;
         }
     }
