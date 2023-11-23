@@ -5,7 +5,7 @@
     box-sizing: border-box; 
     font-family: 'Rubik', sans-serif;
     /* background-color: rgba(160, 255, 134, 0.74); */
-    outline: 1px solid;
+    /* outline: 1px solid; */
     list-style: none;
     text-decoration: none;
 
@@ -20,16 +20,17 @@ a {
     align-items: center;
     justify-content: center;
     background-color: lightblue;
-    padding: 35px 10px;
+    padding: 15px 10px;
     gap: 15px;
 }
-.right-cont,
+.right-cont button,
 .left-cont {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    /* padding: 10px; */
     gap: 5px;
+    cursor: pointer;
 }
 .left-cont img {
     width: 60px;
@@ -39,37 +40,44 @@ a {
     font-size: 25px;
     font-weight: 600;
 }
+.right-cont button {
+    background-color: lightsalmon;
+    padding: 7px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 .right-cont p {
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 15px;
+    font-weight: 500;
 }
 
 .right-cont img {
-    width: 40px;
+    width: 30px;
 }
 
 .nav-links-cont {
     display: flex;
     align-items: center;
-    justify-content: center;
-    max-width: 70vw;
+    justify-content: space-between;
+    max-width: 65vw;
     width: 100%;
-    gap: 50px;
+    gap: 30px;
+    padding: 12px;
 }
-
-.nav-links{
-    padding: 20px 10px;
-    background-color: lightgoldenrodyellow;
-
-}
+.nav-links,
 .nav-links ul {
     display: flex;
     align-items: center;
     justify-content: center;
     white-space: nowrap;
     gap: 15px;
+    
 }
-
+.nav-links li a{
+    font-size: 18px;
+    font-weight: 400;
+}
 /*-------------------DROPDOWN------------*/
 
 .dropdown{
@@ -83,14 +91,22 @@ a {
     width: 100%;
     padding: 10px 10px;
     border-bottom: 1px solid;
+    cursor: pointer;
+    transition: all .15s;
 
+}
+.dropdown-content li:hover {
+    background-color: rgba(200, 200, 200, 0.562);
+}
+.dropdown-content li:last-child{
+    border-bottom: none;
 }
 .dropdown:hover .dropdown-content{
     border: 1px solid rgb(17, 15, 15);
     display: flex;
     flex-direction: column;
     align-items: start;
-    gap: 10px;
+    /* gap: 10px; */
     justify-content: start;
     background-color: azure;
     height: auto;
