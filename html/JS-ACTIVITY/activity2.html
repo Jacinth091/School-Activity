@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JS- BARRAL act2</title>
+    </head>
+    <body>
+        <form action="#">
+            <h1>Checking for EQUILATERAL, ISOCELES, AND SCALENE TRIANGLE</h1>
+            <label for="angle1">Angle 1:</label>
+            <input type="number" id="angle1">
+            
+            <label for="angle2">Angle 2:</label>
+            <input type="number" id="angle2">
+            
+            <label for="angle3">Angle 3:</label>
+            <input type="number" id="angle3">
+
+            <button onclick="Calculate()">Check</button>
+
+            <div class="result" id="result"></div>
+
+        </form>
+    <script>
+
+        function Calculate(){
+            angle1 = parseInt(document.getElementById('angle1').value);
+            angle2 = parseInt(document.getElementById('angle2').value);
+            angle3 = parseInt(document.getElementById('angle3').value);
+
+
+            
+            if(isNaN(angle1) || isNaN(angle2) || isNaN(angle3)){
+                alert("Input Angle Value!");
+            }
+            else {
+
+                if(angle1 === angle2 && angle2 === angle3){
+                    document.getElementById('result').innerHTML = "Equilateral";
+                }
+                else if (angle1 === angle2 || angle2 === angle3 || angle1 === angle3) {
+                    document.getElementById('result').innerHTML = "Isoceles";
+                } 
+                else{
+                    document.getElementById('result').innerHTML = "Scalene";
+                }   
+            }
+        }
+
+    </script>
+    </body>
+
+
+
+</html>

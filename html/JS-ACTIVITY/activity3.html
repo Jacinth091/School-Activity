@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JS- BARRAL act3</title>
+    </head>
+    <body>
+        <form action="#">
+            <h1>CUSTOMER ELECTRICITY BILL</h1>
+            <label for="IDnumber">Customer ID:</label>
+            <input type="number" id="IDnumber">
+            
+            <label for="Username">Name: </label>
+            <input type="text" id="Username">
+            
+            <label for="consumed">Unit Consumed: </label>
+            <input type="number" id="consumed">
+
+            <button onclick="Print()">Print Bill</button>
+
+            <div class="result" id="result">
+                
+            </div>
+
+        </form>
+    <script>
+            
+    function Calculate(consumed, {chOne, chTwo, chThree, chFour}, charge) {
+        let amountCharge, amountSURCHARGE, netAmount;
+        if (consumed <= 199) {
+            amountCharge = consumed * chOne;
+            amountSURCHARGE = 0;
+            netAmount = amountCharge;
+        }
+        else if (consumed >= 200 && consumed < 400 ) {
+            amountCharge = consumed * chTwo;
+            amountSURCHARGE = 0;
+            netAmount = amountCharge;
+        }
+        else if (consumed >= 400 && consumed < 600){
+            amountCharge = consumed * chThree;
+            amountSURCHARGE = amountCharge * charge;             // SURCHRAGE 
+            netAmount = amountCharge + amountSURCHARGE;
+        }
+        else if (consumed >= 600) {
+            amountCharge = consumed * chFour;
+            amountSURCHARGE = amountCharge * charge;             // SURCHRAGE 
+            netAmount = amountCharge + amountSURCHARGE;
+        }
+        return [amountCharge, amountSURCHARGE, netAmount];
+    }
+
+    function Print() {
+        let userName = document.getElementById('Username').value;
+        let customerID = document.getElementById('IDnumber').value;
+        let unitConsumed = parseFloat(document.getElementById('consumed').value);
+
+        if (!userName || !customerID || isNaN(unitConsumed)) {
+            alert('Please fill in all fields with valid data.');
+            return;
+        }
+
+        // let amountCharge, amountSURCHARGE, netAmount;
+        const unitCharge = {
+            chOne: 1.20,
+            chTwo: 1.50,
+            chThree: 1.80,
+            chFour: 2.00
+        }
+        const SURCHRAGE = .15;
+        let [calcAmountCharge, calcAmountSurcharge, calcNetAmount] = Calculate(unitConsumed, unitCharge, SURCHRAGE);
+        let chargeRate;
+
+        if(unitConsumed <= 199) {
+            chargeRate = unitCharge.chOne;
+        }
+        else if (unitConsumed >= 200 && unitConsumed < 400 ) {
+            chargeRate = unitCharge.chTwo;
+        }
+        else if (unitConsumed >= 400 && unitConsumed < 600 ) {
+            chargeRate = unitCharge.chThree;
+        }
+        else if (unitConsumed >= 600 ) {
+            chargeRate = unitCharge.chFour;
+        }
+        
+        document.getElementById('result').innerHTML = `
+        Customer ID NO: ${customerID} <br> 
+        Customer Name: ${userName} <br>
+        Amount Charges @₱ ${chargeRate.toFixed(2)} per unit: ${calcAmountCharge} <br>
+        Surcharge Amount: ${calcAmountSurcharge} <br>
+        Net Amount Paid By the Customer: ${calcNetAmount} <br>
+        `; 
+        
+    }
+
+    </script>
+    </body>
+    
+    
+    </html>
