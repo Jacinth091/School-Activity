@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>JS-BARRAL ACT4</title>
+    </head>
+    <body>
+        <form action="#" id="form">
+            <h1>Print Prime Numbers in a Range</h1>
+
+            <label for="lowNum">Enter Lowest Number: </label>
+            <input type="number" name="lowerNumber" id="lowNum">
+
+            <label for="highNum">Enter Highest Number: </label>
+            <input type="number" name="highestNumber" id="highNum">
+
+            
+            <button onclick="showRes()">Show Result</button>
+
+            <div class="result" id="result">
+                
+            </div>
+
+        </form>
+    </body>
+    <script>
+        var form = document.getElementById('form');
+        function submitForm(event){
+            event.preventDefault();
+        }
+        form.addEventListener('submit', submitForm);
+
+        function showRes() {
+            const lowerNumber = parseInt(document.getElementById('lowNum').value);
+            const higherNumber = parseInt(document.getElementById('highNum').value);
+            
+            
+
+            if(isNaN(lowerNumber) || isNaN(higherNumber)) {
+                alert("Please input value in the specified field.");
+            }
+            else {
+                if(lowerNumber > higherNumber){
+                    alert("Re-enter value!");
+                }
+                else {
+                    const prNum = [];
+                    for(let i = lowerNumber; i <= higherNumber; i++) {
+                        let isPrime = true;
+                        for(let j = 2; j < i; j++) {
+                            if (i % j === 0){
+                                isPrime = false;
+                                break;
+                            }
+                        }
+                        if(i > 1 && isPrime === true) {
+                            prNum.push(i);
+                        }
+                    }
+                    const res = prNum.join(', ');
+                    document.getElementById('result').innerHTML = `The prime numbers between ${lowerNumber} and ${higherNumber} are:  ${res} `;
+
+                }
+            }
+        } 
+             
+    </script>
+</html>

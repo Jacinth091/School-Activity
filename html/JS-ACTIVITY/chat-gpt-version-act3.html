@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPT VERSION ACT3</title>
+</head>
+<body>
+    <form action="#">
+        <h1>CUSTOMER ELECTRICITY BILL</h1>
+        <label for="IDnumber">Customer ID:</label>
+        <input type="number" id="IDnumber">
+        
+        <label for="Username">Name: </label>
+        <input type="text" id="Username">
+        
+        <label for="consumed">Unit Consumed: </label>
+        <input type="number" id="consumed">
+
+        <button onclick="Print()">Print Bill</button>
+
+        <div class="result" id="result"></div>
+    </form>
+
+    <script>
+        function Calculate(consumed, charges, charge) {
+            const amountCharge = consumed * charges[charge[charge.length - 1]?.name || 'chFour'].limit;
+            const amountSURCHARGE = (consumed >= 400 ? amountCharge * charges[charge[charge.length - 1]?.name || 'chFour'].charge : 0);
+            return [amountCharge, amountSURCHARGE, amountSURCHARGE ? amountCharge + amountSURCHARGE : amountCharge];
+        }
+
+        function Print() {
+            const getValue = id => document.getElementById(id).value.trim();
+            const userName = getValue('Username');
+            const customerID = getValue('IDnumber');
+            const unitConsumed = parseFloat(getValue('consumed'));
+
+            if (!userName || !customerID || isNaN(unitConsumed)) {
+                alert('Please fill in all fields with valid data.');
+                return;
+            }
+
+            const SURCHRAGE = 0.15; // corrected variable name
+            const unitCharge = [
+            { name: 'chOne', limit: 199, charge: 1.20 },
+            { name: 'chTwo', limit: 399, charge: 1.50 },
+            { name: 'chThree', limit: 599, charge: 1.80 },
+            { name: 'chFour', limit: Infinity, charge: 2.00 }
+            ];
+
+            const [calcAmountCharge, calcAmountSurcharge, calcNetAmount] = Calculate(unitConsumed, unitCharge, unitCharge);
+
+            const chargeRate = calcAmountCharge / unitConsumed;
+
+            document.getElementById('result').innerHTML = `
+                Customer ID NO: ${customerID} <br> 
+                Customer Name: ${userName} <br>
+                Amount Charges @₱ ${chargeRate.toFixed(2)} per unit: ${calcAmountCharge} <br>
+                Surcharge Amount: ${calcAmountSurcharge} <br>
+                Net Amount Paid By the Customer: ${calcNetAmount} <br>
+            `;
+        }
+    </script>
+</body>
+</html>

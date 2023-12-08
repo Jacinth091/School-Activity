@@ -3,19 +3,19 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>JS- BARRAL act3</title>
+        <title>JS-BARRAL ACT3</title>
     </head>
     <body>
         <form action="#">
             <h1>CUSTOMER ELECTRICITY BILL</h1>
             <label for="IDnumber">Customer ID:</label>
-            <input type="number" id="IDnumber">
+            <input type="number" id="IDnumber" required>
             
             <label for="Username">Name: </label>
-            <input type="text" id="Username">
+            <input type="text" id="Username" required>
             
             <label for="consumed">Unit Consumed: </label>
-            <input type="number" id="consumed">
+            <input type="number" id="consumed" required>
 
             <button onclick="Print()">Print Bill</button>
 
@@ -59,9 +59,7 @@
         if (!userName || !customerID || isNaN(unitConsumed)) {
             alert('Please fill in all fields with valid data.');
             return;
-        }
-
-        // let amountCharge, amountSURCHARGE, netAmount;
+        }   
         const unitCharge = {
             chOne: 1.20,
             chTwo: 1.50,
@@ -69,28 +67,16 @@
             chFour: 2.00
         }
         const SURCHRAGE = .15;
-        let [calcAmountCharge, calcAmountSurcharge, calcNetAmount] = Calculate(unitConsumed, unitCharge, SURCHRAGE);
-        let chargeRate;
+        const [calcAmountCharge, calcAmountSurcharge, calcNetAmount] = Calculate(unitConsumed, unitCharge, SURCHRAGE);
+        const chargeRate = calcAmountCharge / unitConsumed;
 
-        if(unitConsumed <= 199) {
-            chargeRate = unitCharge.chOne;
-        }
-        else if (unitConsumed >= 200 && unitConsumed < 400 ) {
-            chargeRate = unitCharge.chTwo;
-        }
-        else if (unitConsumed >= 400 && unitConsumed < 600 ) {
-            chargeRate = unitCharge.chThree;
-        }
-        else if (unitConsumed >= 600 ) {
-            chargeRate = unitCharge.chFour;
-        }
         
         document.getElementById('result').innerHTML = `
         Customer ID NO: ${customerID} <br> 
         Customer Name: ${userName} <br>
-        Amount Charges @₱ ${chargeRate.toFixed(2)} per unit: ${calcAmountCharge} <br>
+        Amount Charges @₱${chargeRate.toFixed(2)} per unit: ${calcAmountCharge.toFixed(2)} <br>
         Surcharge Amount: ${calcAmountSurcharge} <br>
-        Net Amount Paid By the Customer: ${calcNetAmount} <br>
+        Net Amount Paid By the Customer: ₱${calcNetAmount.toFixed(2)} <br>
         `; 
         
     }
@@ -98,5 +84,4 @@
     </script>
     </body>
     
-    
-    </html>
+</html>
