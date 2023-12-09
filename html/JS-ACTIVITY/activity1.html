@@ -17,6 +17,8 @@
             <button onclick="Calculate()">Calculate</button>
 
             <div class="result" id="result"></div>
+            <div class="result" id="result1"></div>
+
 
         </form>
     <script>
@@ -24,14 +26,27 @@
         function Calculate(){
             const totalDegrees = 180;
             angle1 = parseFloat(document.getElementById('angle1').value);
-            angle2 = parseFloat(document.getElementById('angle2').value);
-            
+            angle2 = parseFloat(document.getElementById('angle2').value);   
+
+            angle3 = totalDegrees - (angle1 + angle2);
+
             if(isNaN(angle1) || isNaN(angle2)){
-                alert("Input Angle Value!");
+                alert("Please input value on the specified fields.");
             }
             else {
-                document.getElementById('result').innerHTML = `The Third Angle is: ${totalDegrees - (angle1 + angle2)}`;
+                if(angle1 >= totalDegrees || angle2 >= totalDegrees){
+                    alert("Fields must be lower than 180 Degrees");
+                }
+                else {
+                    if( angle3 <= 0 ){
+                        alert("The Third Angle should not be less than or equal to zero.");
+                    }
+                    else {
+                        document.getElementById('result').innerHTML = `Third Angle is: ${angle3}`;
+                    }
+                }
             }
+
 
         }
 

@@ -25,14 +25,14 @@
     <script>
 
         function Calculate(){
-            angle1 = parseInt(document.getElementById('angle1').value);
-            angle2 = parseInt(document.getElementById('angle2').value);
-            angle3 = parseInt(document.getElementById('angle3').value);
+            angle1 = document.getElementById('angle1').value;
+            angle2 = document.getElementById('angle2').value;
+            angle3 = document.getElementById('angle3').value;
 
 
             
-            if(isNaN(angle1) || isNaN(angle2) || isNaN(angle3)){
-                alert("Input Angle Value!");
+            if(!angle1 || !angle2 || !angle3){
+                alert("Please input value on the specified fields.");
             }
             else {
 
