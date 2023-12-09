@@ -37,31 +37,26 @@
             
             
 
-            if(isNaN(lowerNumber) || isNaN(higherNumber)) {
+            if(isNaN(lowerNumber) || isNaN(higherNumber))
                 alert("Please input value on the specified fields.");
-            }
+            else if(lowerNumber > higherNumber)
+                alert("Re-enter value!");
             else {
-                if(lowerNumber > higherNumber){
-                    alert("Re-enter value!");
-                }
-                else {
-                    const prNum = [];
-                    for(let i = lowerNumber; i <= higherNumber; i++) {
-                        let isPrime = true;
-                        for(let j = 2; j < i; j++) {
-                            if (i % j === 0){
-                                isPrime = false;
-                                break;
-                            }
-                        }
-                        if(i > 1 && isPrime === true) {
-                            prNum.push(i);
+                const prNum = [];
+                for(let i = lowerNumber; i <= higherNumber; i++) {
+                    let isPrime = true;
+                    for(let j = 2; j < i; j++) {
+                        if (i % j === 0){
+                            isPrime = false;
+                            break;
                         }
                     }
-                    const res = prNum.join(', ');
-                    document.getElementById('result').innerHTML = `The prime numbers between ${lowerNumber} and ${higherNumber} are:  ${res} `;
-
+                    if(i > 1 && isPrime === true) {
+                        prNum.push(i);
+                    }
                 }
+                const res = prNum.join(', ');
+                document.getElementById('result').innerHTML = `The prime numbers between ${lowerNumber} and ${higherNumber} are:  ${res} `;
             }
         } 
              

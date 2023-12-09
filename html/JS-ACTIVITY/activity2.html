@@ -29,23 +29,15 @@
             angle2 = document.getElementById('angle2').value;
             angle3 = document.getElementById('angle3').value;
 
-
-            
-            if(!angle1 || !angle2 || !angle3){
+            if(!angle1 || !angle2 || !angle3) 
                 alert("Please input value on the specified fields.");
-            }
-            else {
+            else if(angle1 === angle2 && angle2 === angle3) 
+                document.getElementById('result').innerHTML = "Equilateral";
+            else if (angle1 === angle2 || angle2 === angle3 || angle1 === angle3) 
+                document.getElementById('result').innerHTML = "Isoceles";
+            else 
+                document.getElementById('result').innerHTML = "Scalene";
 
-                if(angle1 === angle2 && angle2 === angle3){
-                    document.getElementById('result').innerHTML = "Equilateral";
-                }
-                else if (angle1 === angle2 || angle2 === angle3 || angle1 === angle3) {
-                    document.getElementById('result').innerHTML = "Isoceles";
-                } 
-                else{
-                    document.getElementById('result').innerHTML = "Scalene";
-                }   
-            }
         }
 
     </script>
