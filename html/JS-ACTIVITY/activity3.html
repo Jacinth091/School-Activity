@@ -35,7 +35,7 @@
         }
         const SURCHARGE = .15;
         let amountCharge = 0, amountSURCHARGE = 0, netAmount = 0, chargeRate = 0;
-        
+
         if ( unitConsumed <= 199) {amountCharge = unitConsumed * unitCharge.chOne;}
         else if (unitConsumed >= 200 && unitConsumed < 400 ) { amountCharge = unitConsumed * unitCharge.chTwo;}
         else if (unitConsumed >= 400 && unitConsumed < 600){
@@ -53,7 +53,6 @@
     }
 
     function Print() {
-
         let userName = document.getElementById('Username').value;
         let customerID = document.getElementById('IDnumber').value;
         let unitConsumed = parseFloat(document.getElementById('consumed').value);
@@ -64,8 +63,6 @@
         }   
         const [calcAmountCharge, calcAmountSurcharge, calcNetAmount, calcChargeRate] = Calculate(unitConsumed);
 
-
-        
         document.getElementById('result').innerHTML = `
         Customer ID NO: ${customerID} <br> 
         Customer Name: ${userName} <br>
