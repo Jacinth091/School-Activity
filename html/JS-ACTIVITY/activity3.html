@@ -26,32 +26,34 @@
         </form>
     <script>
             
-    function Calculate(consumed, {chOne, chTwo, chThree, chFour}, charge) {
-        let amountCharge, amountSURCHARGE, netAmount;
-        if (consumed <= 199) {
-            amountCharge = consumed * chOne;
-            amountSURCHARGE = 0;
-            netAmount = amountCharge;
+    function Calculate(unitConsumed) {
+        const unitCharge = {
+            chOne: 1.20,
+            chTwo: 1.50,
+            chThree: 1.80,
+            chFour: 2.00
         }
-        else if (consumed >= 200 && consumed < 400 ) {
-            amountCharge = consumed * chTwo;
-            amountSURCHARGE = 0;
-            netAmount = amountCharge;
+        const SURCHARGE = .15;
+        let amountCharge = 0, amountSURCHARGE = 0, netAmount = 0, chargeRate = 0;
+        
+        if ( unitConsumed <= 199) {amountCharge = unitConsumed * unitCharge.chOne;}
+        else if (unitConsumed >= 200 && unitConsumed < 400 ) { amountCharge = unitConsumed * unitCharge.chTwo;}
+        else if (unitConsumed >= 400 && unitConsumed < 600){
+            amountCharge = unitConsumed * unitCharge.chThree;
+            amountSURCHARGE = amountCharge * SURCHARGE;             // SURCHRAGE 
         }
-        else if (consumed >= 400 && consumed < 600){
-            amountCharge = consumed * chThree;
-            amountSURCHARGE = amountCharge * charge;             // SURCHRAGE 
-            netAmount = amountCharge + amountSURCHARGE;
+        else if (unitConsumed >= 600) {
+            amountCharge = unitConsumed * unitCharge.chFour;
+            amountSURCHARGE = amountCharge * SURCHARGE;             // SURCHRAGE 
         }
-        else if (consumed >= 600) {
-            amountCharge = consumed * chFour;
-            amountSURCHARGE = amountCharge * charge;             // SURCHRAGE 
-            netAmount = amountCharge + amountSURCHARGE;
-        }
-        return [amountCharge, amountSURCHARGE, netAmount];
+        
+        chargeRate = amountCharge / unitConsumed;
+        netAmount = amountCharge + amountSURCHARGE;
+        return [amountCharge, amountSURCHARGE, netAmount, chargeRate];
     }
 
     function Print() {
+
         let userName = document.getElementById('Username').value;
         let customerID = document.getElementById('IDnumber').value;
         let unitConsumed = parseFloat(document.getElementById('consumed').value);
@@ -60,21 +62,14 @@
             alert('Please input value on the specified fields.');
             return;
         }   
-        const unitCharge = {
-            chOne: 1.20,
-            chTwo: 1.50,
-            chThree: 1.80,
-            chFour: 2.00
-        }
-        const SURCHRAGE = .15;
-        const [calcAmountCharge, calcAmountSurcharge, calcNetAmount] = Calculate(unitConsumed, unitCharge, SURCHRAGE);
-        const chargeRate = calcAmountCharge / unitConsumed;
+        const [calcAmountCharge, calcAmountSurcharge, calcNetAmount, calcChargeRate] = Calculate(unitConsumed);
+
 
         
         document.getElementById('result').innerHTML = `
         Customer ID NO: ${customerID} <br> 
         Customer Name: ${userName} <br>
-        Amount Charges @₱${chargeRate.toFixed(2)} per unit: ${calcAmountCharge.toFixed(2)} <br>
+        Amount Charges @₱${calcChargeRate.toFixed(2)} per unit: ${calcAmountCharge.toFixed(2)} <br>
         Surcharge Amount: ${calcAmountSurcharge} <br>
         Net Amount Paid By the Customer: ₱${calcNetAmount.toFixed(2)} <br>
         `; 
