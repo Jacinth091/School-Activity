@@ -16,7 +16,7 @@
             <input type="number" name="highestNumber" id="highNum">
 
             
-            <button onclick="showRes()">Show Result</button>
+            <button type="button" onclick="showPrRes()">Show Result</button>
 
             <div class="result" id="result">
                 
@@ -25,18 +25,11 @@
         </form>
     </body>
     <script>
-        var form = document.getElementById('form');
-        function submitForm(event){
-            event.preventDefault();
-        }
-        form.addEventListener('submit', submitForm);
 
-        function showRes() {
+        function showPrRes() {
             const lowerNumber = parseInt(document.getElementById('lowNum').value);
             const higherNumber = parseInt(document.getElementById('highNum').value);
             
-            
-
             if(isNaN(lowerNumber) || isNaN(higherNumber))
                 alert("Please input value on the specified fields.");
             else if(lowerNumber > higherNumber)
@@ -59,6 +52,5 @@
                 document.getElementById('result').innerHTML = `The prime numbers between ${lowerNumber} and ${higherNumber} are:  ${res} `;
             }
         } 
-             
     </script>
 </html>

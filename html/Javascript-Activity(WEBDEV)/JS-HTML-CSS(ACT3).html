@@ -17,7 +17,7 @@
             <label for="consumed">Unit Consumed: </label>
             <input type="number" id="consumed" required>
 
-            <button onclick="Print()">Print Bill</button>
+            <button type="button" onclick="Print()">Print Bill</button>
 
             <div class="result" id="result">
                 
@@ -42,7 +42,7 @@
             amountCharge = unitConsumed * unitCharge.chThree;
             amountSURCHARGE = amountCharge * SURCHARGE;             // SURCHRAGE 
         }
-        else if (unitConsumed >= 600) {
+        else {
             amountCharge = unitConsumed * unitCharge.chFour;
             amountSURCHARGE = amountCharge * SURCHARGE;             // SURCHRAGE 
         }
