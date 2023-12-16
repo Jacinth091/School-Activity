@@ -251,6 +251,7 @@ li {
     
 }
 .result-container {
+    display: none;
     width: 100%;
     /* padding: 5px 10px 10px 10px; */
 
@@ -258,20 +259,18 @@ li {
 .result-container p {
     color: var(--text);
     margin-bottom: 6px;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: 25px;
+    font-weight: 600;
     text-align: start;
 }
 .result {
-    border: 1px solid black;
-    color: black;
-    background-color: white;
+
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: center;
     gap: 10px;
-    height: 50px;
+    height: auto;
     padding: 15px;
     font-size: 16px;
     border-radius: 5px;
@@ -294,7 +293,29 @@ li {
     line-height: 35px;
 
 }
-.expl p {
+
+/*-------------------------Print Table-------------------------*/
+
+.print-table{
+    border: 1px solid;
+    color: white;
+    width: 100%;
+    background-color: black ;
+
+}
+.print-table th{
+    font-size: 18px;
+
+}
+.print-table tr {
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+    border-collapse: collapse;
+    border: 10px solid white;
+    
+}.print-table td {
+    padding: 10px;
 }
 
 

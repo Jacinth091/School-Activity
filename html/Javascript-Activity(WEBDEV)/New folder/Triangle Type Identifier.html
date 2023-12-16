@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-        <link rel="stylesheet" href="/css/Javascript-Activity(WEBDEV)/Activity-Catalogue.css">
-        <title>HOME - Activity Catalogue</title>
+        <link rel="stylesheet" href="/css/New folder/Triangle Type Identifier.css">
+        <title>Triangle Type Identifier</title>
     </head>
     <body>
         <main class="webpage-view">
@@ -62,22 +62,26 @@
                 <section class="main-content-container">
                     <div class="m-container">
                         <div class="m-contents">
-                            <p>Find Angle 3:</p>
+                            <p>Triangle Type Identifier</p>
                             <form action="#" id="inputForm" class="inputForm">
                                 <div class="userInput">
-                                    <label for="angle1">Angle 1: </label>
+                                    <label for="angle1">Side 1: </label>
                                     <input type="number" id="angle1" required>
                                 </div>
                                 <div class="userInput">
-                                    <label for="angle2">Angle 2: </label>
+                                    <label for="angle2">Side 2: </label>
                                     <input type="number" id="angle2" required>
+                                </div>
+                                <div class="userInput">
+                                    <label for="angle3">Side 3: </label>
+                                    <input type="number" id="angle3" required>
                                 </div>
                                 
                                 <div class="calcButt">
-                                    <button type="button" onclick="Calculate()">Calculate</button>
+                                    <button type="button" onclick="checkForTriangle()">Calculate</button>
                                 </div>  
                                 <div class="result-container">
-                                    <p>Result: </p>
+                                    <p>Triangle Type: </p>
                                     <div class="result" id="result">
                                         <!-- <span id="sum" class="calcResult"></span>
                                         <span id="differ" class="calcResult"></span>
@@ -89,10 +93,11 @@
                             </form>
                         </div>
                         <div class="desc">
-                            <h1>To Find the Third Angle of a Triangle:</h1>
+                            <h1>Triangle Type Identifier</h1>
                             <div class="expl">
-                                Using the inputted values for angle 1 and angle 2, we can calculate the value of the third angle by summing the two angles and subtracting it from the total of all angles, which is 180 degress.
-                                <br> <br><b> Formula: Third Angle = 180 - (angle 1 + angle 2) </b>
+                               This identifier validates three angles specified in a form. 
+                                It then determines if the triangle is an <b>Equilateral (all angles equal), 
+                                Isosceles (two equal angles), or Scalene (no equal angles)</b> triangle and displays the result.
                             </div>
                         </div>
                     </div>
@@ -108,30 +113,20 @@
         </main>
     </body>
     <script>
+        function checkForTriangle(){
+            angle1 = document.getElementById('angle1').value;
+            angle2 = document.getElementById('angle2').value;
+            angle3 = document.getElementById('angle3').value;
 
-        function Calculate(){
-            const totalDegrees = 180;
-            angle1 = parseFloat(document.getElementById('angle1').value);
-            angle2 = parseFloat(document.getElementById('angle2').value);   
-
-            angle3 = totalDegrees - (angle1 + angle2);
-
-            if(isNaN(angle1) || isNaN(angle2))
+            if(!angle1 || !angle2 || !angle3) 
                 alert("Please input value on the specified fields.");
-            else if (angle1 >= totalDegrees || angle2 >= totalDegrees)
-                alert("Fields must be lower than 180 Degrees");
-            else if( angle3 <= 0 )
-                alert("The Third Angle should not be less than or equal to zero.");
-            else
-                document.getElementById('result').innerHTML = `Third Angle is: ${angle3}`;
-            
-
-
+            else if(angle1 === angle2 && angle2 === angle3) 
+                document.getElementById('result').innerHTML = "Equilateral";
+            else if (angle1 === angle2 || angle2 === angle3 || angle1 === angle3) 
+                document.getElementById('result').innerHTML = "Isoceles";
+            else 
+                document.getElementById('result').innerHTML = "Scalene";
 
         }
-
-
-
-
     </script>
 </html>

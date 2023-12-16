@@ -178,6 +178,7 @@ li {
     height: 100%;
 }
 .m-contents{
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;

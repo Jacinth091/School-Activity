@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-        <link rel="stylesheet" href="/css/Javascript-Activity(WEBDEV)/Activity-Catalogue.css">
-        <title>HOME - Activity Catalogue</title>
+        <link rel="stylesheet" href="/css/New folder/Customer Electricity Bill.css">
+        <title>Customer Electricity Bill</title>
     </head>
     <body>
         <main class="webpage-view">
@@ -62,37 +62,74 @@
                 <section class="main-content-container">
                     <div class="m-container">
                         <div class="m-contents">
-                            <p>Find Angle 3:</p>
+                            <p>Customer Electricity Bill</p>
                             <form action="#" id="inputForm" class="inputForm">
                                 <div class="userInput">
-                                    <label for="angle1">Angle 1: </label>
-                                    <input type="number" id="angle1" required>
+                                    <label for="IDnumber">Customer ID:</label>
+                                    <input type="number" id="IDnumber" required>
                                 </div>
                                 <div class="userInput">
-                                    <label for="angle2">Angle 2: </label>
-                                    <input type="number" id="angle2" required>
+                                    <label for="Username">Name: </label>
+                                    <input type="text" id="Username" required>
+                                </div>
+                                <div class="userInput">
+                                    <label for="consumed">Unit Consumed: </label>
+                                    <input type="number" id="consumed" required>
                                 </div>
                                 
                                 <div class="calcButt">
-                                    <button type="button" onclick="Calculate()">Calculate</button>
+                                    <button type="button" onclick="Print()">Print Bill</button>
                                 </div>  
-                                <div class="result-container">
-                                    <p>Result: </p>
-                                    <div class="result" id="result">
-                                        <!-- <span id="sum" class="calcResult"></span>
-                                        <span id="differ" class="calcResult"></span>
-                                        <span id="prod" class="calcResult"></span>
-                                        <span id="quotient" class="calcResult"></span>
-                                        <span id="ave" class="calcResult"></span> -->
-                                    </div>
-                                </div>
                             </form>
                         </div>
-                        <div class="desc">
-                            <h1>To Find the Third Angle of a Triangle:</h1>
-                            <div class="expl">
-                                Using the inputted values for angle 1 and angle 2, we can calculate the value of the third angle by summing the two angles and subtracting it from the total of all angles, which is 180 degress.
-                                <br> <br><b> Formula: Third Angle = 180 - (angle 1 + angle 2) </b>
+                        <div class="left-content">
+                            <div class="result-container" id="res-cont">
+                                <p>Your Electricity Bill:</p>
+                                <div class="result" id="result">
+                                    <table class="print-table">
+                                        <tr>
+                                            <th colspan="2">Customer Information</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Customer IDNO:</td>
+                                            <td><span id="id"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Customer Name:</td>
+                                            <td><span id="name"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>unit Consumed:</td>
+                                            <td><span id="unitCon"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <th>Amount Audited</th>
+                                            <th>Total</th>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td><span id="amountCharges"></span></td>
+                                            <td><span id="Ac"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Surcharge Amount:</td>
+                                            <td><span id="sur"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Net Amount to be Paid by the Customer:</span></td>
+                                            <td><span id="net"></span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="desc">
+                                <h1>Printing Customer's Electricity Bill</h1>
+                                <div class="expl">
+                                    When the user enters and validates information, 
+                                    these functionalities compute power bill data, 
+                                    computing charges, and presenting the 
+                                    result when the user clicks "Print." 
                             </div>
                         </div>
                     </div>
@@ -109,28 +146,52 @@
     </body>
     <script>
 
-        function Calculate(){
-            const totalDegrees = 180;
-            angle1 = parseFloat(document.getElementById('angle1').value);
-            angle2 = parseFloat(document.getElementById('angle2').value);   
-
-            angle3 = totalDegrees - (angle1 + angle2);
-
-            if(isNaN(angle1) || isNaN(angle2))
-                alert("Please input value on the specified fields.");
-            else if (angle1 >= totalDegrees || angle2 >= totalDegrees)
-                alert("Fields must be lower than 180 Degrees");
-            else if( angle3 <= 0 )
-                alert("The Third Angle should not be less than or equal to zero.");
-            else
-                document.getElementById('result').innerHTML = `Third Angle is: ${angle3}`;
-            
-
-
-
+    function Calculate(unitConsumed) {
+        const unitCharge = {
+            chOne: 1.20,
+            chTwo: 1.50,
+            chThree: 1.80,
+            chFour: 2.00
         }
+        const SURCHARGE = .15;
+        let amountCharge = 0, amountSURCHARGE = 0, netAmount = 0, chargeRate = 0;
 
+        if ( unitConsumed <= 199) {amountCharge = unitConsumed * unitCharge.chOne;}
+        else if (unitConsumed >= 200 && unitConsumed < 400 ) { amountCharge = unitConsumed * unitCharge.chTwo;}
+        else if (unitConsumed >= 400 && unitConsumed < 600){
+            amountCharge = unitConsumed * unitCharge.chThree;
+            amountSURCHARGE = amountCharge * SURCHARGE;             // SURCHRAGE 
+        }
+        else {
+            amountCharge = unitConsumed * unitCharge.chFour;
+            amountSURCHARGE = amountCharge * SURCHARGE;             // SURCHRAGE 
+        }
+        
+        chargeRate = amountCharge / unitConsumed;
+        netAmount = amountCharge + amountSURCHARGE;
+        return [amountCharge, amountSURCHARGE, netAmount, chargeRate];
+    }
 
+    function Print() {
+        let userName = document.getElementById('Username').value;
+        let customerID = document.getElementById('IDnumber').value;
+        let unitConsumed = parseFloat(document.getElementById('consumed').value);
+
+        if (!userName || !customerID || isNaN(unitConsumed)) {
+            alert('Please input value on the specified fields.');
+            return;
+        }   
+        const [calcAmountCharge, calcAmountSurcharge, calcNetAmount, calcChargeRate] = Calculate(unitConsumed);
+        document.getElementById('res-cont').style.display = 'block';
+        
+        document.getElementById('id').textContent = customerID;
+        document.getElementById('name').textContent = userName;
+        document.getElementById('unitCon').textContent = unitConsumed;
+        document.getElementById('amountCharges').textContent = `Amount Charges @₱${calcChargeRate.toFixed(2)} per unit`;
+        document.getElementById('Ac').textContent = `₱ ${calcAmountCharge.toFixed(2)}`;
+        document.getElementById('sur').textContent = `₱ ${calcAmountSurcharge.toFixed(2)}`;
+        document.getElementById('net').textContent = `₱ ${calcNetAmount.toFixed(2)}`;
+    }
 
 
     </script>

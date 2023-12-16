@@ -5,8 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-        <link rel="stylesheet" href="/css/Javascript-Activity(WEBDEV)/Activity-Catalogue.css">
-        <title>HOME - Activity Catalogue</title>
+        <link rel="stylesheet" href="/css/New folder/Integer-Calculator.css">
+        <script src="/js/Javascript-Activity(WEBDEV)/integer-calculator.js"></script>
+        <title>Integer-Calculator</title>
     </head>
     <body>
         <main class="webpage-view">
@@ -39,7 +40,7 @@
                             <div class="file-links">
                                 <ul>
                                     <p>Javascript-Activity</p>
-                                    <li><a href="/html/Javascript-Activity(WEBDEV)/Integer-Calculator.html">Integer-Calculator</a></li>
+                                    <li><a href="#">Integer-Calculator</a></li>
                                     <li><a href="#">Simple Input Form</a></li>
                                     <li><a href="#">JS-Loop</a></li>
                                     <li><a href="#">JS-Nested If</a></li>
@@ -49,10 +50,10 @@
                                 </ul>
                                 <ul>
                                     <p>Js-Html-Css Activity</p>
-                                    <li><a href="/html/Javascript-Activity(WEBDEV)/JS-HTML-CSS(ACT1).html">Third Angle Finder</a></li>
-                                    <li><a href="/html/Javascript-Activity(WEBDEV)/JS-HTML-CSS(ACT2).html">Triangle Type Identifier</a></li>
-                                    <li><a href="/html/Javascript-Activity(WEBDEV)/JS-HTML-CSS(ACT3).html">Customer Electricity Bill</a></li>
-                                    <li><a href="/html/Javascript-Activity(WEBDEV)/JS-HTML-CSS(ACT4).html">Prime Numbers in a Range</a></li>
+                                    <li><a href="#">Third Angle Finder</a></li>
+                                    <li><a href="#">Triangle Type Identifier</a></li>
+                                    <li><a href="#">Customer Electricity Bill</a></li>
+                                    <li><a href="#">Prime Numbers in a Range</a></li>
     
                                 </ul>
                             </div>
@@ -62,15 +63,28 @@
                 <section class="main-content-container">
                     <div class="m-container">
                         <div class="m-contents">
-                            <p>Find Angle 3:</p>
+                            <p>Integer Calculator</p>
                             <form action="#" id="inputForm" class="inputForm">
                                 <div class="userInput">
-                                    <label for="angle1">Angle 1: </label>
-                                    <input type="number" id="angle1" required>
+                                    <label for="num1">Enter Num1: </label> </label>
+                                    <input type="number" id="num1" required>
                                 </div>
                                 <div class="userInput">
-                                    <label for="angle2">Angle 2: </label>
-                                    <input type="number" id="angle2" required>
+                                    <label for="num1">Choose what Operation: </label>
+                                    <select name="Operation" id="selectOp">
+                                        <option value="All" >ALL OPERATION</option>
+                                        <option value="+" >Addition</option>
+                                        <option value="-" >Subtraction</option>
+                                        <option value="*" >Multiplication</option>
+                                        <option value="/" >Division</option>
+                                        <option value="%" >Modulo</option>
+                                        <option value="Ave" >Average</option>
+            
+                                    </select>
+                                </div>
+                                <div class="userInput">
+                                    <label for="num2">Enter Num2: </label>
+                                    <input type="number" id="num2" required>
                                 </div>
                                 
                                 <div class="calcButt">
@@ -89,10 +103,11 @@
                             </form>
                         </div>
                         <div class="desc">
-                            <h1>To Find the Third Angle of a Triangle:</h1>
+                            <h1>Integer Calculator</h1>
                             <div class="expl">
-                                Using the inputted values for angle 1 and angle 2, we can calculate the value of the third angle by summing the two angles and subtracting it from the total of all angles, which is 180 degress.
-                                <br> <br><b> Formula: Third Angle = 180 - (angle 1 + angle 2) </b>
+
+                                It takes the value of the two numbers from the input html and then it will perform operations based on what operation the user selected, after calculating it will give back the result to the user.
+                                <br> <br><b>(Addidtion, Subtraction, Multiplication, Division, Modulo, and Average) </b>
                             </div>
                         </div>
                     </div>
@@ -107,31 +122,4 @@
             </footer>
         </main>
     </body>
-    <script>
-
-        function Calculate(){
-            const totalDegrees = 180;
-            angle1 = parseFloat(document.getElementById('angle1').value);
-            angle2 = parseFloat(document.getElementById('angle2').value);   
-
-            angle3 = totalDegrees - (angle1 + angle2);
-
-            if(isNaN(angle1) || isNaN(angle2))
-                alert("Please input value on the specified fields.");
-            else if (angle1 >= totalDegrees || angle2 >= totalDegrees)
-                alert("Fields must be lower than 180 Degrees");
-            else if( angle3 <= 0 )
-                alert("The Third Angle should not be less than or equal to zero.");
-            else
-                document.getElementById('result').innerHTML = `Third Angle is: ${angle3}`;
-            
-
-
-
-        }
-
-
-
-
-    </script>
 </html>

@@ -1,4 +1,4 @@
-function submitForm() {
+function checkNum() {
 
     let number = parseInt(document.getElementById('number').value);
 

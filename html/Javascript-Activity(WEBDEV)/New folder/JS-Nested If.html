@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-        <link rel="stylesheet" href="/css/Javascript-Activity(WEBDEV)/Activity-Catalogue.css">
-        <title>HOME - Activity Catalogue</title>
+        <link rel="stylesheet" href="/css/New folder/JS-Nested If.css">
+        <title>JS-Nested If</title>
     </head>
     <body>
         <main class="webpage-view">
@@ -62,37 +62,26 @@
                 <section class="main-content-container">
                     <div class="m-container">
                         <div class="m-contents">
-                            <p>Find Angle 3:</p>
-                            <form action="#" id="inputForm" class="inputForm">
+                            <p>Simple Submit Validation Form</p>
+                            <form action="/submit_form" id="inputForm" class="inputForm" onsubmit="return validateForm()" method="post">
                                 <div class="userInput">
-                                    <label for="angle1">Angle 1: </label>
-                                    <input type="number" id="angle1" required>
+                                    <label for="name">Enter Name: </label>
+                                    <input type="text" id="name" required>
                                 </div>
                                 <div class="userInput">
-                                    <label for="angle2">Angle 2: </label>
-                                    <input type="number" id="angle2" required>
+                                    <label for="age">Enter Age: </label>
+                                    <input type="number" id="age" required>
                                 </div>
                                 
                                 <div class="calcButt">
-                                    <button type="button" onclick="Calculate()">Calculate</button>
+                                    <input type="submit" value="Submit">
                                 </div>  
-                                <div class="result-container">
-                                    <p>Result: </p>
-                                    <div class="result" id="result">
-                                        <!-- <span id="sum" class="calcResult"></span>
-                                        <span id="differ" class="calcResult"></span>
-                                        <span id="prod" class="calcResult"></span>
-                                        <span id="quotient" class="calcResult"></span>
-                                        <span id="ave" class="calcResult"></span> -->
-                                    </div>
-                                </div>
                             </form>
                         </div>
                         <div class="desc">
-                            <h1>To Find the Third Angle of a Triangle:</h1>
+                            <h1>Simple Submit Validation Form</h1>
                             <div class="expl">
-                                Using the inputted values for angle 1 and angle 2, we can calculate the value of the third angle by summing the two angles and subtracting it from the total of all angles, which is 180 degress.
-                                <br> <br><b> Formula: Third Angle = 180 - (angle 1 + angle 2) </b>
+                                Simple validation Submit Form that determines whether the "name" and "age" fields on a form are filled out. It also guarantees that the age is between 1 and 100. If everything is in order, you can submit; otherwise, it will inform you what needs to be fixed.
                             </div>
                         </div>
                     </div>
@@ -109,26 +98,28 @@
     </body>
     <script>
 
-        function Calculate(){
-            const totalDegrees = 180;
-            angle1 = parseFloat(document.getElementById('angle1').value);
-            angle2 = parseFloat(document.getElementById('angle2').value);   
+        function validateForm() {
+            var name = document.forms["inputForm"]["name"].value;
+            var age = document.forms["inputForm"]["age"].value;
 
-            angle3 = totalDegrees - (angle1 + angle2);
+            if (name == "" && age == "") {
+                alert("Name and Age must be filled out!");
+                return false;
 
-            if(isNaN(angle1) || isNaN(angle2))
-                alert("Please input value on the specified fields.");
-            else if (angle1 >= totalDegrees || angle2 >= totalDegrees)
-                alert("Fields must be lower than 180 Degrees");
-            else if( angle3 <= 0 )
-                alert("The Third Angle should not be less than or equal to zero.");
-            else
-                document.getElementById('result').innerHTML = `Third Angle is: ${angle3}`;
-            
-
-
+            }
+            else {
+                if(isNaN(age) || age < 1 || age > 100) {
+                    alert("Age must between 1 and 100!");
+                    return false;
+                }
+                else {
+                    alert("Submission Successful!");
+                    return true;
+                }
+            }
 
         }
+
 
 
 

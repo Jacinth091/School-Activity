@@ -232,7 +232,7 @@ li {
     /* font-weight: 600 */
 }
 
-.calcButt button {
+.calcButt input[type=submit] {
     padding: 10px 20px;
     border-radius: 5px;
     border: none;

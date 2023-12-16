@@ -178,6 +178,7 @@ li {
     height: 100%;
 }
 .m-contents{
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -258,9 +259,8 @@ li {
 .result-container p {
     color: var(--text);
     margin-bottom: 6px;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 500;
-    text-align: start;
 }
 .result {
     border: 1px solid black;
