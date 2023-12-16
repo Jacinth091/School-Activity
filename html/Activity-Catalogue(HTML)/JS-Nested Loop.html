@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-        <link rel="stylesheet" href="/css/New folder/JS-Loop.css">
-        <title>JS-Loop</title>
+        <link rel="stylesheet" href="/css/Activity-Catalogue(CSS)/JS-Nested Loop.css">
+        <title>JS-Nested Loop</title>
     </head>
     <body>
         <main class="webpage-view">
@@ -39,20 +39,20 @@
                             <div class="file-links">
                                 <ul>
                                     <p>Javascript-Activity</p>
-                                    <li><a href="/html/Javascript-Activity(WEBDEV)/Integer-Calculator.html">Integer-Calculator</a></li>
-                                    <li><a href="#">Simple Input Form</a></li>
-                                    <li><a href="#">JS-Loop</a></li>
-                                    <li><a href="#">JS-Nested If</a></li>
-                                    <li><a href="#">JS-Switch Case</a></li>
-                                    <li><a href="#">JS-Nested Loop</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/Integer-Calculator.html">Integer-Calculator</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/Simple-Input-form.html">Simple Input Form</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/JS-Loop.html">JS-Loop</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/JS-Nested If.html">JS-Nested If</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/JS-Switch-Case.html">JS-Switch Case</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/JS-Nested Loop.html">JS-Nested Loop</a></li>
                                     
                                 </ul>
                                 <ul>
                                     <p>Js-Html-Css Activity</p>
-                                    <li><a href="/html/Javascript-Activity(WEBDEV)/JS-HTML-CSS(ACT1).html">Third Angle Finder</a></li>
-                                    <li><a href="/html/Javascript-Activity(WEBDEV)/JS-HTML-CSS(ACT2).html">Triangle Type Identifier</a></li>
-                                    <li><a href="/html/Javascript-Activity(WEBDEV)/JS-HTML-CSS(ACT3).html">Customer Electricity Bill</a></li>
-                                    <li><a href="/html/Javascript-Activity(WEBDEV)/JS-HTML-CSS(ACT4).html">Prime Numbers in a Range</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/Third Angle Finder.html">Third Angle Finder</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/Triangle Type Identifier.html">Triangle Type Identifier</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/Customer Electricity Bill.html">Customer Electricity Bill</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/Prime Numbers In a Range.html">Prime Numbers in a Range</a></li>
     
                                 </ul>
                             </div>
@@ -62,22 +62,22 @@
                 <section class="main-content-container">
                     <div class="m-container">
                         <div class="m-contents">
-                            <p>Simple For Loop</p>
+                            <p>Nested Loop</p>
                             <form action="#" id="inputForm" class="inputForm">
-
                                 <div class="calcButt">
-                                    <button type="button" onclick="loopFunction()">Press</button>
+                                    <button type="button" onclick="startNestLoop()">Start Loop</button>
                                 </div>  
                                 <div class="result-container">
-                                    <p>Check Result in the Console Log </p>
+                                    <p>Check in the Console Log</p>
                                 </div>
                             </form>
                         </div>
                         <div class="desc">
-                            <h1>Simple For Loop</h1>
+                            <h1>Simple Nested Loop</h1>
                             <div class="expl">
-                                This code defines a function called 'loopFunction()' that conducts a 0-10 loop. It displays a message in the format "Loop [iteration number]" for each iteration.
-                                <br> <br><b> Check for browser's console log to see results. </b>
+                                This code contains two sets of actions: a large action that occurs four times, 
+                                and a smaller action that occurs four times within each of these. When the main action happens, 
+                                it goes through all the minor ones before moving on to the next big one.
                             </div>
                         </div>
                     </div>
@@ -93,15 +93,16 @@
         </main>
     </body>
     <script>
-        function loopFunction() {
-            for (let i = 0; i <= 10; i++) {
-                console.log(`Loop ${i}` );
 
-                
-            }
-
-
+        function startNestLoop() {
+            for (let i = 0; i <= 3; i++) {
+                console.log("Outer Loop iteration: " + i );
+                for (let j = 0; j <= 3; j++) {
+                    console.log("Inside Loop iteration: " + j );  
+                }
+            }          
         }
+
 
 
 

@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-        <link rel="stylesheet" href="/css/New folder/Triangle Type Identifier.css">
-        <title>Triangle Type Identifier</title>
+        <link rel="stylesheet" href="/css/Activity-Catalogue(CSS)/Prime Numbers in a range.css">
+        <title>Prime Numbers in a Range</title>
     </head>
     <body>
         <main class="webpage-view">
@@ -39,20 +39,20 @@
                             <div class="file-links">
                                 <ul>
                                     <p>Javascript-Activity</p>
-                                    <li><a href="/html/Javascript-Activity(WEBDEV)/Integer-Calculator.html">Integer-Calculator</a></li>
-                                    <li><a href="#">Simple Input Form</a></li>
-                                    <li><a href="#">JS-Loop</a></li>
-                                    <li><a href="#">JS-Nested If</a></li>
-                                    <li><a href="#">JS-Switch Case</a></li>
-                                    <li><a href="#">JS-Nested Loop</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/Integer-Calculator.html">Integer-Calculator</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/Simple-Input-form.html">Simple Input Form</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/JS-Loop.html">JS-Loop</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/JS-Nested If.html">JS-Nested If</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/JS-Switch-Case.html">JS-Switch Case</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/JS-Nested Loop.html">JS-Nested Loop</a></li>
                                     
                                 </ul>
                                 <ul>
                                     <p>Js-Html-Css Activity</p>
-                                    <li><a href="/html/Javascript-Activity(WEBDEV)/JS-HTML-CSS(ACT1).html">Third Angle Finder</a></li>
-                                    <li><a href="/html/Javascript-Activity(WEBDEV)/JS-HTML-CSS(ACT2).html">Triangle Type Identifier</a></li>
-                                    <li><a href="/html/Javascript-Activity(WEBDEV)/JS-HTML-CSS(ACT3).html">Customer Electricity Bill</a></li>
-                                    <li><a href="/html/Javascript-Activity(WEBDEV)/JS-HTML-CSS(ACT4).html">Prime Numbers in a Range</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/Third Angle Finder.html">Third Angle Finder</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/Triangle Type Identifier.html">Triangle Type Identifier</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/Customer Electricity Bill.html">Customer Electricity Bill</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/Prime Numbers In a Range.html">Prime Numbers in a Range</a></li>
     
                                 </ul>
                             </div>
@@ -62,26 +62,22 @@
                 <section class="main-content-container">
                     <div class="m-container">
                         <div class="m-contents">
-                            <p>Triangle Type Identifier</p>
+                            <p>Prime Number in a Range:</p>
                             <form action="#" id="inputForm" class="inputForm">
                                 <div class="userInput">
-                                    <label for="angle1">Side 1: </label>
-                                    <input type="number" id="angle1" required>
+                                    <label for="lowNum">Start: </label>
+                                    <input type="number" id="lowNum" required>
                                 </div>
                                 <div class="userInput">
-                                    <label for="angle2">Side 2: </label>
-                                    <input type="number" id="angle2" required>
-                                </div>
-                                <div class="userInput">
-                                    <label for="angle3">Side 3: </label>
-                                    <input type="number" id="angle3" required>
+                                    <label for="highNum">End: </label>
+                                    <input type="number" id="highNum" required>
                                 </div>
                                 
                                 <div class="calcButt">
-                                    <button type="button" onclick="checkForTriangle()">Calculate</button>
+                                    <button type="button" onclick="showPrRes()">Find Prime</button>
                                 </div>  
                                 <div class="result-container">
-                                    <p>Triangle Type: </p>
+                                    <p>Prime Numbers: </p>
                                     <div class="result" id="result">
                                         <!-- <span id="sum" class="calcResult"></span>
                                         <span id="differ" class="calcResult"></span>
@@ -93,11 +89,9 @@
                             </form>
                         </div>
                         <div class="desc">
-                            <h1>Triangle Type Identifier</h1>
+                            <h1>Prime Numbers in a Range</h1>
                             <div class="expl">
-                               This identifier validates three angles specified in a form. 
-                                It then determines if the triangle is an <b>Equilateral (all angles equal), 
-                                Isosceles (two equal angles), or Scalene (no equal angles)</b> triangle and displays the result.
+                                This function detects and displays prime numbers inside a given range of numbers.
                             </div>
                         </div>
                     </div>
@@ -113,20 +107,36 @@
         </main>
     </body>
     <script>
-        function checkForTriangle(){
-            angle1 = document.getElementById('angle1').value;
-            angle2 = document.getElementById('angle2').value;
-            angle3 = document.getElementById('angle3').value;
-
-            if(!angle1 || !angle2 || !angle3) 
+        function showPrRes() {
+            const lowerNumber = parseInt(document.getElementById('lowNum').value);
+            const higherNumber = parseInt(document.getElementById('highNum').value);
+            
+            if(isNaN(lowerNumber) || isNaN(higherNumber))
                 alert("Please input value on the specified fields.");
-            else if(angle1 === angle2 && angle2 === angle3) 
-                document.getElementById('result').innerHTML = "Equilateral";
-            else if (angle1 === angle2 || angle2 === angle3 || angle1 === angle3) 
-                document.getElementById('result').innerHTML = "Isoceles";
-            else 
-                document.getElementById('result').innerHTML = "Scalene";
+            else if(lowerNumber > higherNumber)
+                alert("Re-enter value!");
+            else {
+                const prNum = [];
+                for(let i = lowerNumber; i <= higherNumber; i++) {
+                    let isPrime = true;
+                    for(let j = 2; j < i; j++) {
+                        if (i % j === 0){
+                            isPrime = false;
+                            break;
+                        }
+                    }
+                    if(i > 1 && isPrime === true) {
+                        prNum.push(i);
+                    }
+                }
+                const res = prNum.join(', ');
+                document.getElementById('result').style.height = "auto";
+                document.getElementById('result').innerHTML = `${res} `;
+            }
+        } 
 
-        }
+
+
+
     </script>
 </html>

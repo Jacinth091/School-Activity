@@ -5,8 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-        <link rel="stylesheet" href="/css/Javascript-Activity(WEBDEV)/Activity-Catalogue.css">
-        <title>JS-Switch Case</title>
+        <link rel="stylesheet" href="/css/Activity-Catalogue(CSS)/Integer-Calculator.css">
+        <script src="/js/Javascript-Activity(WEBDEV)/integer-calculator.js"></script>
+        <title>Integer-Calculator</title>
     </head>
     <body>
         <main class="webpage-view">
@@ -39,20 +40,20 @@
                             <div class="file-links">
                                 <ul>
                                     <p>Javascript-Activity</p>
-                                    <li><a href="/html/Javascript-Activity(WEBDEV)/Integer-Calculator.html">Integer-Calculator</a></li>
-                                    <li><a href="#">Simple Input Form</a></li>
-                                    <li><a href="#">JS-Loop</a></li>
-                                    <li><a href="#">JS-Nested If</a></li>
-                                    <li><a href="#">JS-Switch Case</a></li>
-                                    <li><a href="#">JS-Nested Loop</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/Integer-Calculator.html">Integer-Calculator</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/Simple-Input-form.html">Simple Input Form</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/JS-Loop.html">JS-Loop</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/JS-Nested If.html">JS-Nested If</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/JS-Switch-Case.html">JS-Switch Case</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/JS-Nested Loop.html">JS-Nested Loop</a></li>
                                     
                                 </ul>
                                 <ul>
                                     <p>Js-Html-Css Activity</p>
-                                    <li><a href="/html/Javascript-Activity(WEBDEV)/JS-HTML-CSS(ACT1).html">Third Angle Finder</a></li>
-                                    <li><a href="/html/Javascript-Activity(WEBDEV)/JS-HTML-CSS(ACT2).html">Triangle Type Identifier</a></li>
-                                    <li><a href="/html/Javascript-Activity(WEBDEV)/JS-HTML-CSS(ACT3).html">Customer Electricity Bill</a></li>
-                                    <li><a href="/html/Javascript-Activity(WEBDEV)/JS-HTML-CSS(ACT4).html">Prime Numbers in a Range</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/Third Angle Finder.html">Third Angle Finder</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/Triangle Type Identifier.html">Triangle Type Identifier</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/Customer Electricity Bill.html">Customer Electricity Bill</a></li>
+                                    <li><a href="/html/Activity-Catalogue(HTML)/Prime Numbers In a Range.html">Prime Numbers in a Range</a></li>
     
                                 </ul>
                             </div>
@@ -62,17 +63,35 @@
                 <section class="main-content-container">
                     <div class="m-container">
                         <div class="m-contents">
-                            <p>Numbers to Month </p>
+                            <p>Integer Calculator</p>
                             <form action="#" id="inputForm" class="inputForm">
                                 <div class="userInput">
-                                    <label for="monthNumber">Month Number </label>
-                                    <input type="number" id="monthNumber" required>
+                                    <label for="num1">Enter Num1: </label> </label>
+                                    <input type="number" id="num1" required>
                                 </div>
+                                <div class="userInput">
+                                    <label for="num1">Choose what Operation: </label>
+                                    <select name="Operation" id="selectOp">
+                                        <option value="All" >ALL OPERATION</option>
+                                        <option value="+" >Addition</option>
+                                        <option value="-" >Subtraction</option>
+                                        <option value="*" >Multiplication</option>
+                                        <option value="/" >Division</option>
+                                        <option value="%" >Modulo</option>
+                                        <option value="Ave" >Average</option>
+            
+                                    </select>
+                                </div>
+                                <div class="userInput">
+                                    <label for="num2">Enter Num2: </label>
+                                    <input type="number" id="num2" required>
+                                </div>
+                                
                                 <div class="calcButt">
-                                    <button type="button" onclick="getMonthNumber()">Convert</button>
+                                    <button type="button" onclick="Calculate()">Calculate</button>
                                 </div>  
                                 <div class="result-container">
-                                    <p>Month Name: </p>
+                                    <p>Result: </p>
                                     <div class="result" id="result">
                                         <!-- <span id="sum" class="calcResult"></span>
                                         <span id="differ" class="calcResult"></span>
@@ -84,11 +103,11 @@
                             </form>
                         </div>
                         <div class="desc">
-                            <h1>Simple Month Display</h1>
+                            <h1>Integer Calculator</h1>
                             <div class="expl">
-                                The simple Month Display, compares a number from a form field to the name of a month. 
-                                If the number corresponds to a month, the name of that month is displayed; 
-                                otherwise, an error message is displayed.
+
+                                It takes the value of the two numbers from the input html and then it will perform operations based on what operation the user selected, after calculating it will give back the result to the user.
+                                <br> <br><b>(Addidtion, Subtraction, Multiplication, Division, Modulo, and Average) </b>
                             </div>
                         </div>
                     </div>
@@ -103,55 +122,4 @@
             </footer>
         </main>
     </body>
-    <script>
-
-        function getMonthNumber() {
-            var monthNumber = document.getElementById('monthNumber').value;
-            var monthName = '';
-
-            switch (monthNumber ) {
-                case '1':
-                    monthName = "January";
-                break;
-                case '2':
-                    monthName = "Febuary";
-                break;
-                case '3':
-                    monthName = "March";
-                break;
-                case '4':
-                    monthName = "April";
-                break;
-                case '5':
-                    monthName = "May";
-                break;
-                case '6':
-                    monthName = "June";
-                break;
-                case '7':
-                    monthName = "July";
-                break;
-                case '8':
-                    monthName = "August";
-                break;
-                case '9':
-                    monthName = "September";
-                break;
-                case '10':
-                    monthName = "Ocotber";
-                break;
-                case '11':
-                    monthName = "November";
-                break;
-                case '12':
-                    monthName = "December";
-                break;
-                default:
-                    alert("Invalid Month Number!");
-                break;
-            }
-            document.getElementById('result').innerHTML = monthName;
-        }
-
-    </script>
 </html>
