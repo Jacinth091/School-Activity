@@ -45,7 +45,6 @@ li {
 } */
 
 /*-------------------------Header-------------------------*/
-
 .header-links{
 
     width: 100%;
@@ -63,7 +62,7 @@ li {
     -webkit-backdrop-filter: blur(5.1px);
     border: 1px solid rgba(255, 255, 255, 0.09);
     border-radius: 5px;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,6 +95,11 @@ li {
 }
 .nav-links ul li {
     padding: 10px;
+    /* margin: 0 5px; */
+}
+.nav-links ul li:hover {
+    background-color: rgba(129, 129, 129, 0.558);
+    transition: all .15s;
 }
 .nav-links a  {
     color: white;
@@ -222,9 +226,9 @@ li {
     justify-content: center;
     max-width: 300px;
     width: 100%;
-    background-color: #feda9e;
-    border: 1px solid black;
-    /* color: var(--white); */
+    background: linear-gradient(324deg, rgba(227,113,185,1) 22%, rgba(171,87,255,1) 100%);
+    border: 3px solid white;
+    color: white;
     border-radius: 5px;
     padding: 20px;
     /* border: 1px solid; */
@@ -256,7 +260,6 @@ li {
     gap: 6px;
 }
 .userInput label {
-    color: var(--text);
     font-weight: 500;
 }
 .userInput select,
@@ -296,7 +299,6 @@ li {
 
 }
 .result-container p {
-    color: var(--text);
     margin-bottom: 6px;
     font-size: 16px;
     font-weight: 500;

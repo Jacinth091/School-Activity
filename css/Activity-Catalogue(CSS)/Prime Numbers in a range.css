@@ -45,7 +45,6 @@ li {
 } */
 
 /*-------------------------Header-------------------------*/
-
 .header-links{
 
     width: 100%;
@@ -63,7 +62,7 @@ li {
     -webkit-backdrop-filter: blur(5.1px);
     border: 1px solid rgba(255, 255, 255, 0.09);
     border-radius: 5px;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,6 +95,11 @@ li {
 }
 .nav-links ul li {
     padding: 10px;
+    /* margin: 0 5px; */
+}
+.nav-links ul li:hover {
+    background-color: rgba(129, 129, 129, 0.558);
+    transition: all .15s;
 }
 .nav-links a  {
     color: white;
@@ -221,9 +225,9 @@ li {
     justify-content: center;
     max-width: 300px;
     width: 100%;
-    background-color: #feda9e;
-    border: 1px solid black;
-    /* color: var(--white); */
+    background: linear-gradient(324deg, rgba(227,113,185,1) 22%, rgba(171,87,255,1) 100%);
+    border: 3px solid white;
+    color: white;
     border-radius: 5px;
     padding: 20px;
     /* border: 1px solid; */
@@ -255,7 +259,6 @@ li {
     gap: 6px;
 }
 .userInput label {
-    color: var(--text);
     font-weight: 500;
 }
 .userInput select,
@@ -290,36 +293,37 @@ li {
     
 }
 .result-container {
+    max-width: 50vw;
     width: 100%;
     display: none;
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+    padding: 20px;
+    line-height: 30px;
+    border-radius: 5px;
+    word-spacing: 5px;
     /* padding: 5px 10px 10px 10px; */
 
 }
 .result-container span{
-    color: var(--text);
     margin-bottom: 6px;
     font-size: 18px;
     font-weight: 600;
     text-align: justify;
-    line-height: 36px;
-    color: white;
+
 }
 .result {
-    border: 1px solid black;
-    color: black;
-    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: center;
     gap: 10px;
-    max-width: 50vw;
-    width: 100%;
     height: 50px;
     padding: 15px;
-    font-size: 16px;
-    border-radius: 5px;
-    word-spacing: 5px;
+    font-size: 18px;
+
+
 }
 /*-------------------------MAin-Desc-------------------------*/
 .desc {

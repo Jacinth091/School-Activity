@@ -45,7 +45,6 @@ li {
 } */
 
 /*-------------------------Header-------------------------*/
-
 .header-links{
 
     width: 100%;
@@ -63,7 +62,7 @@ li {
     -webkit-backdrop-filter: blur(5.1px);
     border: 1px solid rgba(255, 255, 255, 0.09);
     border-radius: 5px;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,6 +95,11 @@ li {
 }
 .nav-links ul li {
     padding: 10px;
+    /* margin: 0 5px; */
+}
+.nav-links ul li:hover {
+    background-color: rgba(129, 129, 129, 0.558);
+    transition: all .15s;
 }
 .nav-links a  {
     color: white;
@@ -215,14 +219,16 @@ li {
     height: 100%;
 }
 .m-contents{
+    color: white;
     margin-top: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     max-width: 300px;
     width: 100%;
-    background-color: #feda9e;
-    border: 1px solid black;
+    background: rgb(227,113,185);
+    background: linear-gradient(324deg, rgba(227,113,185,1) 22%, rgba(171,87,255,1) 100%);
+    border: 3px solid white;
     /* color: var(--white); */
     border-radius: 5px;
     padding: 20px;
@@ -255,7 +261,6 @@ li {
     gap: 6px;
 }
 .userInput label {
-    color: var(--text);
     font-weight: 500;
 }
 .userInput select,
@@ -290,18 +295,26 @@ li {
     
 }
 .result-container {
-    display: none;
+    max-width: 50vw;
     width: 100%;
-    /* padding: 5px 10px 10px 10px; */
+    display: none;
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+    padding: 10px;
+    line-height: 30px;
+    border-radius: 5px;
+    word-spacing: 5px;
+    box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.221);
+
 
 }
 .result-container p {
-    color: var(--text);
+    padding: 10px;
     margin-bottom: 6px;
     font-size: 25px;
     font-weight: 600;
     text-align: start;
-    color: white;
 }
 .result {
 
@@ -311,7 +324,7 @@ li {
     justify-content: center;
     gap: 10px;
     height: auto;
-    padding: 15px;
+    padding: 10px;
     font-size: 16px;
     border-radius: 5px;
 }
@@ -345,7 +358,6 @@ li {
     color: white;
     width: 100%;
     background-color: black ;
-    box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.221);
 
 }
 .print-table th{
